@@ -1,7 +1,7 @@
 :root {
   --color-1: #fff4d7;
   --color-2: #ffe249;
-  --color-3: rgb(255, 175, 56);
+  --color-3: #ffaf38;
   --color-3-semi: rgba(255, 175, 56, 0.5);
   --color-4: #000000;
 }
@@ -9,7 +9,6 @@
 html {
   font-size: 62.5%;
   font-family: "Open Sans";
-  background-color: var(--color-1);
 }
 
 body {
@@ -32,7 +31,6 @@ body {
 }
 
 .headerListItem {
-  padding: 0rem 1rem;
   margin: 0rem 6rem;
   position: relative;
 }
@@ -78,6 +76,7 @@ body {
 .homeTitle {
   position: relative;
   text-align: center;
+  z-index: 1;
 }
 
 .homeTitleTop {
@@ -142,5 +141,6 @@ body {
   }
   .coderText {
     font-size: 7rem;
+    left: 2rem;
   }
 }
