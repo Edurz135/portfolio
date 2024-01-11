@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Niagara Solid";   /*Can be any text*/
+  src: local("AirbnbCerealLight"),
+    url("./fonts/Niagara Solid Regular.ttf") format("truetype");
+}
