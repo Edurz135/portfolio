@@ -7,3 +7,26 @@
   src: local("AirbnbCerealLight"),
     url("./fonts/Niagara Solid Regular.ttf") format("truetype");
 }
+
+body {
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #EFF0E3;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #DB9C3E;
+}
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #DB9C3E;
+} */

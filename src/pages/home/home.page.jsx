@@ -6,8 +6,8 @@ export default function HomePage() {
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
-  
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-35%"]);
 
   useEffect(() => {}, []);
 
@@ -104,62 +104,127 @@ export default function HomePage() {
         </div>
       </div>
 
-      <section ref={targetRef} className="relative h-[300vh]">
+      <section ref={targetRef} className="relative h-[220vh]">
         <div className="sticky top-0 h-screen flex">
           <div className="absolute z-50">
-            
-            <div className="relative top-[-5rem] font-one text-color-one font-bold text-[11rem]">
-              WORK
-            </div>
-            <motion.div style={{x}} className="flex gap-4 overflow-hidden">
-              <div className="flex h-[12em] w-[40rem] bg-color-one rounded-3xl">
-                <div className="flex-1 bg-color-three rounded-l-3xl"></div>
-                <div className="flex-1 flex justify-center font-three text-[15rem] leading-[12rem]">
-                  2019
+            <motion.div style={{ x }} className="relative top-[-5rem]">
+              {/* overflow-hidden"> */}
+              <div className=" font-one text-color-one font-bold text-[11rem]">
+                WORK
+              </div>
+
+              <div className="flex gap-10">
+                <div className="flex h-[12em] w-[40rem] bg-color-one rounded-3xl">
+                  <div className="flex-1 bg-color-three rounded-l-3xl"></div>
+                  <div className="flex-1 flex justify-center font-three text-[15rem] leading-[12rem]">
+                    2019
+                  </div>
+                </div>
+
+                <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
+                  <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
+                  <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
+                    2019
+                  </div>
+                </div>
+
+                <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
+                  <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
+                  <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
+                    2019
+                  </div>
+                </div>
+              </div>
+              <div className="flex gap-10 mt-10 ml-[16rem]">
+                <div className="flex h-[12em] w-[40rem] bg-color-one rounded-3xl">
+                  <div className="flex-1 bg-color-three rounded-l-3xl"></div>
+                  <div className="flex-1 flex justify-center font-three text-[15rem] leading-[12rem]">
+                    2019
+                  </div>
+                </div>
+
+                <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
+                  <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
+                  <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
+                    2019
+                  </div>
+                </div>
+
+                <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
+                  <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
+                  <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
+                    2019
+                  </div>
                 </div>
               </div>
 
-              <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
-                <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
-                <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
-                  2019
-                </div>
-              </div>
-              <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
-                <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
-                <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
-                  2019
-                </div>
-              </div>
-              <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
-                <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
-                <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
-                  2019
-                </div>
-              </div>
-              <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
-                <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
-                <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
-                  2019
-                </div>
-              </div>
-              <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
-                <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
-                <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
-                  2019
-                </div>
-              </div>
-              <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
-                <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
-                <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
-                  2019
-                </div>
+              <div className="text-color-three font-two font-bold pt-10">
+                EDUARDO
+                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
+                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
+                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
+                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
+                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
+                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
+                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
+      <div className="flex">
+        <div className="flex-1">
+          <div className=" font-one text-color-one font-bold text-[12rem] leading-none">
+            CONTACT
+          </div>
+          <div className="flex">
+            <div className=" font-one text-color-one font-bold text-[12rem] leading-none">
+              ME
+            </div>
+            <div className="font-two text-color-three text-justify text-xl pl-10 ">
+              Student of the Systems Engineering degree at the University of
+              Lima. I have experience in web page development and of 2D and 3D
+              video games under the Unity platform. Am a responsible, organized
+              video games under the Unity platform. Am a responsible, organized
+              person, with great ease of learning and committed to work.
+            </div>
+          </div>
+          <br />
+          <div className="flex justify-between px-10 py-2 bg-color-one rounded-3xl text-color-two">
+            <span className="font-two font-bold text-5xl underline">
+              GITHUB
+            </span>
+            <span className="font-two font-bold text-5xl underline">MAIL</span>
+            <span className="font-two font-bold text-5xl underline">
+              LINKEDIN
+            </span>
+          </div>
+        </div>
+        {/* <div className="flex-1"> */}
+        <div className="flex-1 font-two text-color-three text-justify text-xl pl-10 whitespace-pre-line">
+          Student of the Systems Engineering degree at the University of Lima. I
+          have experience in web page development and of 2D and 3D video games
+          under the Unity platform. Am a responsible, organized person, with
+          great ease of learning and committed to work.
+          <br />
+          <br />
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam.
+          <br />
+          <br />
+          Student of the Systems Engineering degree at the University of Lima. I
+          have experience in web page development and of 2D and 3D video games
+          under the Unity platform. Am a responsible, organized person, with
+          great ease of learning and committed to work.
+        </div>
+      </div>
+
+      <br />
+      <div className="text-color-three text-center py-4 font-two leading-none">
+        <div>Designed by <b>Eduardo Ramón</b></div>
+        <div>© 2024</div>
+      </div>
     </div>
   );
 }
