@@ -1,6 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import { motion, useTransform, useScroll } from "framer-motion";
 
 export default function HomePage() {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+  
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+
   useEffect(() => {}, []);
 
   return (
@@ -29,7 +37,9 @@ export default function HomePage() {
         </span>
       </div>
 
-      <div className="text-[21rem] leading-[15rem] font-two font-bold">eduardo</div>
+      <div className="text-[21rem] leading-[15rem] font-two font-bold">
+        eduardo
+      </div>
       <div className="h-[26rem] bg-color-three rounded-b-3xl"></div>
 
       <br />
@@ -61,9 +71,9 @@ export default function HomePage() {
       <div className="flex">
         <div className="flex-1">
           <div className="h-[40rem] bg-color-three rounded-3xl"></div>
-          <div className="font-one text-color-one font-bold text-[11rem]">
+          {/* <div className="font-one text-color-one font-bold text-[11rem]">
             WORK
-          </div>
+          </div> */}
         </div>
         <div className="flex-1 relative">
           <div className="absolute font-one text-color-one font-bold text-[11rem] right-0">
@@ -93,21 +103,63 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      
-      <div className="flex h-[12em] w-[40rem] bg-color-one rounded-3xl">
-        <div className="flex-1 bg-color-three rounded-l-3xl">
+
+      <section ref={targetRef} className="relative h-[300vh]">
+        <div className="sticky top-0 h-screen flex">
+          <div className="absolute z-50">
+            
+            <div className="relative top-[-5rem] font-one text-color-one font-bold text-[11rem]">
+              WORK
+            </div>
+            <motion.div style={{x}} className="flex gap-4 overflow-hidden">
+              <div className="flex h-[12em] w-[40rem] bg-color-one rounded-3xl">
+                <div className="flex-1 bg-color-three rounded-l-3xl"></div>
+                <div className="flex-1 flex justify-center font-three text-[15rem] leading-[12rem]">
+                  2019
+                </div>
+              </div>
+
+              <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
+                <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
+                <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
+                  2019
+                </div>
+              </div>
+              <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
+                <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
+                <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
+                  2019
+                </div>
+              </div>
+              <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
+                <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
+                <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
+                  2019
+                </div>
+              </div>
+              <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
+                <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
+                <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
+                  2019
+                </div>
+              </div>
+              <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
+                <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
+                <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
+                  2019
+                </div>
+              </div>
+              <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
+                <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
+                <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
+                  2019
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
-        <div className="flex-1 flex justify-center font-three text-[15rem] leading-[12rem]">
-          2019
-        </div>
-      </div>
-      <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
-        <div className="flex-1 bg-color-three text-color-three rounded-l-3xl">
-        </div>
-        <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
-          2019
-        </div>
-      </div>
+      </section>
     </div>
   );
 }
