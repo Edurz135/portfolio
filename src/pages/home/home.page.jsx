@@ -9,7 +9,8 @@ export default function HomePage() {
         <span className="font-two font-bold text-5xl">EDURZ</span>
         <span className="font-two font-bold text-5xl">+</span>
       </div>
-      <div className="flex flex-row">
+
+      <div className="flex flex-row mt-[18rem]">
         <span>
           <p className="font-two font-bold">Name-</p>
           <p className="font-two">Eduardo</p>
@@ -27,6 +28,9 @@ export default function HomePage() {
           <p className="font-two">22.07.2003</p>
         </span>
       </div>
+
+      <div className="text-[21rem] leading-[15rem] font-two font-bold">eduardo</div>
+      <div className="h-[26rem] bg-color-three rounded-b-3xl"></div>
 
       <br />
 
@@ -55,21 +59,26 @@ export default function HomePage() {
       <br />
 
       <div className="flex">
-        <div className="flex-1 h-[40rem] bg-color-three rounded-3xl"></div>
         <div className="flex-1">
-          <div className="font-one text-color-one font-bold text-[11rem] text-right">
+          <div className="h-[40rem] bg-color-three rounded-3xl"></div>
+          <div className="font-one text-color-one font-bold text-[11rem]">
+            WORK
+          </div>
+        </div>
+        <div className="flex-1 relative">
+          <div className="absolute font-one text-color-one font-bold text-[11rem] right-0">
             RAMÓN
           </div>
-          <div className="font-two text-color-three text-justify text-xl pl-10 whitespace-pre-line">
-            Student of the <b>Systems Engineering</b> degree at the University of Lima.
-            I have experience in web page development and of 2D and 3D video
-            games under the Unity platform. Am a <b>responsible</b>, organized person,
-            with great ease of learning and committed to work.
+          <div className="font-two text-color-three text-justify text-xl pt-[15rem] pl-10 whitespace-pre-line">
+            Student of the <b>Systems Engineering</b> degree at the University
+            of Lima. I have experience in web page development and of 2D and 3D
+            video games under the Unity platform. Am a <b>responsible</b>,
+            organized person, with great ease of learning and committed to work.
             <br />
             <br />
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et <b>dolore</b> magna aliqua. Ut enim
-            ad minim veniam.
+            eiusmod tempor incididunt ut labore et <b>dolore</b> magna aliqua.
+            Ut enim ad minim veniam.
             <br />
             <br />
             Student of the Systems Engineering degree at the University of Lima.
@@ -82,6 +91,21 @@ export default function HomePage() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam.
           </div>
+        </div>
+      </div>
+      
+      <div className="flex h-[12em] w-[40rem] bg-color-one rounded-3xl">
+        <div className="flex-1 bg-color-three rounded-l-3xl">
+        </div>
+        <div className="flex-1 flex justify-center font-three text-[15rem] leading-[12rem]">
+          2019
+        </div>
+      </div>
+      <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
+        <div className="flex-1 bg-color-three text-color-three rounded-l-3xl">
+        </div>
+        <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
+          2019
         </div>
       </div>
     </div>
