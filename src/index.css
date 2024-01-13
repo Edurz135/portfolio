@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Niagara Solid";   /*Can be any text*/
+  font-family: "Niagara Solid"; /*Can be any text*/
   src: local("AirbnbCerealLight"),
     url("./fonts/Niagara Solid Regular.ttf") format("truetype");
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,12 +22,12 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #EFF0E3;
+  background: #eff0e3;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #DB9C3E;
+  background: #db9c3e;
 }
 
 /* Handle on hover */

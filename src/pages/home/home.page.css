@@ -1,0 +1,6 @@
+@keyframes lineanim {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
