@@ -18,7 +18,7 @@ export default function HomePage() {
         <span className="font-two font-bold text-5xl">+</span>
       </div>
 
-      <div className="flex flex-row mt-[18rem]">
+      <div className="flex flex-row mt-[18rem] gap-16 text-lg">
         <span>
           <p className="font-two font-bold">Name-</p>
           <p className="font-two">Eduardo</p>
@@ -27,7 +27,7 @@ export default function HomePage() {
           <p className="font-two font-bold">Lastname-</p>
           <p className="font-two">Ramón</p>
         </span>
-        <span>
+        <span className="pl-40">
           <p className="font-two font-bold">Role-</p>
           <p className="font-two">Coder</p>
         </span>
@@ -37,11 +37,12 @@ export default function HomePage() {
         </span>
       </div>
 
-      <div className="text-[21rem] leading-[15rem] font-two font-bold">
+      <div className="text-[21rem] leading-[8rem] pb-12 font-two font-bold">
         eduardo
       </div>
       <div className="h-[26rem] bg-color-three rounded-b-3xl"></div>
 
+      <br />
       <br />
 
       <div className="flex justify-between text-5xl font-bold font-two">
@@ -60,12 +61,14 @@ export default function HomePage() {
       </div>
 
       <br />
+      <br />
 
-      <div className="flex justify-between items-end h-28 px-5 bg-color-one font-one text-color-two font-bold rounded-3xl">
-        <span className="text-8xl">PORTFOLIO</span>
+      <div className="flex justify-between items-end h-36 px-5 bg-color-one font-one text-color-two font-bold rounded-3xl">
+        <span className="text-9xl">PORTFOLIO</span>
         <span className="text-4xl pb-3">It's me</span>
       </div>
 
+      <br />
       <br />
 
       <div className="flex">
@@ -105,11 +108,14 @@ export default function HomePage() {
       </div>
 
       <section ref={targetRef} className="relative h-[220vh]">
-        <div className="sticky top-0 h-screen flex">
-          <div className="absolute z-50">
-            <motion.div style={{ x }} className="relative top-[-5rem]">
+        <div className="sticky top-0 h-screen">
+          <div className="absolute z-50 h-full">
+            <motion.div
+              style={{ x }}
+              className="relative flex flex-col justify-between h-full"
+            >
               {/* overflow-hidden"> */}
-              <div className=" font-one text-color-one font-bold text-[11rem]">
+              <div className=" font-one text-color-one font-bold text-[11rem] leading-none pt-5">
                 WORK
               </div>
 
@@ -158,7 +164,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="text-color-three font-two font-bold pt-10">
+              <div className="text-color-three font-two font-bold py-5">
                 EDUARDO
                 RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
                 RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
@@ -172,11 +178,14 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <br />
+      <br />
       <div className="flex">
         <div className="flex-1">
           <div className=" font-one text-color-one font-bold text-[12rem] leading-none">
             CONTACT
           </div>
+          <br />
           <div className="flex">
             <div className=" font-one text-color-one font-bold text-[12rem] leading-none">
               ME
@@ -190,7 +199,8 @@ export default function HomePage() {
             </div>
           </div>
           <br />
-          <div className="flex justify-between px-10 py-2 bg-color-one rounded-3xl text-color-two">
+          <br />
+          <div className="flex justify-between px-10 py-4 bg-color-one rounded-3xl text-color-two">
             <span className="font-two font-bold text-5xl underline">
               GITHUB
             </span>
@@ -221,8 +231,10 @@ export default function HomePage() {
       </div>
 
       <br />
-      <div className="text-color-three text-center py-4 font-two leading-none">
-        <div>Designed by <b>Eduardo Ramón</b></div>
+      <div className="text-color-three text-center py-14 font-two leading-none">
+        <div>
+          Designed by <b>Eduardo Ramón</b>
+        </div>
         <div>© 2024</div>
       </div>
     </div>
