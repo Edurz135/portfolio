@@ -1,12 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import {
-  motion,
-  useTransform,
-  useScroll,
-  useAnimation,
-  useInView,
-} from "framer-motion";
+import { motion, useTransform, useScroll } from "framer-motion";
 import "./home.page.css";
+import { Card, AnimatedText } from "../../components";
 
 export default function HomePage() {
   const targetRef = useRef(null);
@@ -16,15 +11,14 @@ export default function HomePage() {
 
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-35%"]);
 
-  const defaultAnimations = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-    },
+  const initialStyle = {
+    backgroundImage: "linear-gradient(white 50%, var(--link-2) 50%)",
+    backgroundSize: "auto 175%",
+    transition: "background .3s ease-in-out",
+  };
+
+  const hoverStyle = {
+    backgroundPositionY: "100%",
   };
 
   useEffect(() => {}, []);
@@ -33,10 +27,16 @@ export default function HomePage() {
     <div className="pt-10 px-10 m-0 bg-color-two">
       <div className="flex justify-between font-two font-bold text-5xl">
         <span>
-          <a href="#about">EDURZ</a>
+          <a href="#about">
+            <AnimatedText el="h2" text={["EDURZ"]} />
+          </a>
         </span>
         <span>
-          <a href="#contact">+</a>
+          <motion.div whileHover={{ scale: 1.2, rotate: 90 }}>
+            <a href="#contact" className="p-2">
+              +
+            </a>
+          </motion.div>
         </span>
       </div>
       <div className="flex flex-row mt-[18rem] gap-16 text-lg font-two text-color-three">
@@ -163,48 +163,14 @@ export default function HomePage() {
               </div>
 
               <div className="flex gap-20">
-                <div className="flex h-[12em] w-[40rem] bg-color-one rounded-3xl">
-                  <div className="flex-1 bg-color-three rounded-l-3xl"></div>
-                  <div className="flex-1 flex justify-center font-three text-[15rem] leading-[12rem]">
-                    2019
-                  </div>
-                </div>
-
-                <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
-                  <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
-                  <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
-                    2019
-                  </div>
-                </div>
-
-                <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
-                  <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
-                  <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
-                    2019
-                  </div>
-                </div>
+                <Card year="2019" variant="default" />
+                <Card year="2021" variant="secondary" />
+                <Card year="2023" variant="default" />
               </div>
               <div className="flex gap-20 mt-10 ml-[16rem]">
-                <div className="flex h-[12em] w-[40rem] bg-color-one rounded-3xl">
-                  <div className="flex-1 bg-color-three rounded-l-3xl"></div>
-                  <div className="flex-1 flex justify-center font-three text-[15rem] leading-[12rem]">
-                    2019
-                  </div>
-                </div>
-
-                <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
-                  <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
-                  <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
-                    2019
-                  </div>
-                </div>
-
-                <div className="flex h-[12em] w-[40rem] bg-color-three rounded-3xl">
-                  <div className="flex-1 bg-color-three text-color-three rounded-l-3xl"></div>
-                  <div className="flex-1 flex justify-center text-color-two font-three text-[15rem] leading-[12rem]">
-                    2019
-                  </div>
-                </div>
+                <Card year="2020" variant="secondary" />
+                <Card year="2022" variant="default" />
+                <Card year="2024" variant="secondary" />
               </div>
 
               <div className="text-color-three font-two font-bold pb-10 block relative">
@@ -241,9 +207,9 @@ export default function HomePage() {
       <br />
       <section className="flex" id="contact">
         <div>
-          <div className="inline">
+          <div>
             <AnimatedText
-              el="h2"
+              // el="h2"
               className="font-one text-color-one font-bold text-[12rem] leading-none"
               text={["CONTACT"]}
             />
@@ -270,9 +236,7 @@ export default function HomePage() {
               </a>
             </span>
             <span className="font-two font-bold text-5xl underline">
-              <a href="mailto:edurz12345@gmail.com">
-                MAIL
-              </a>
+              <a href="mailto:edurz12345@gmail.com">MAIL</a>
             </span>
             <span className="font-two font-bold text-5xl underline">
               <a
@@ -313,87 +277,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-const defaultAnimations = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.1,
-    },
-  },
-};
-
-export const AnimatedText = ({
-  text,
-  el: Wrapper = "p",
-  className,
-  once,
-  repeatDelay,
-  animation = defaultAnimations,
-}) => {
-  const controls = useAnimation();
-  const textArray = Array.isArray(text) ? text : [text];
-  const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.5, once });
-
-  useEffect(() => {
-    let timeout;
-    const show = () => {
-      controls.start("visible");
-      if (repeatDelay) {
-        timeout = setTimeout(async () => {
-          await controls.start("hidden");
-          controls.start("visible");
-        }, repeatDelay);
-      }
-    };
-
-    if (isInView) {
-      show();
-    } else {
-      controls.start("hidden");
-    }
-
-    return () => clearTimeout(timeout);
-  }, [isInView]);
-
-  return (
-    <Wrapper className={className}>
-      <span className="sr-only">{textArray.join(" ")}</span>
-      <motion.span
-        ref={ref}
-        initial="hidden"
-        animate={controls}
-        variants={{
-          visible: { transition: { staggerChildren: 0.1 } },
-          hidden: {},
-        }}
-        aria-hidden
-      >
-        {textArray.map((line, lineIndex) => (
-          <span className="block" key={`${line}-${lineIndex}`}>
-            {line.split(" ").map((word, wordIndex) => (
-              <span className="inline-block" key={`${word}-${wordIndex}`}>
-                {word.split("").map((char, charIndex) => (
-                  <motion.span
-                    key={`${char}-${charIndex}`}
-                    className="inline" // acá decía inline-block
-                    variants={animation}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-                {/* <span className="inline-block">&nbsp;</span> */}
-              </span>
-            ))}
-          </span>
-        ))}
-      </motion.span>
-    </Wrapper>
-  );
-};

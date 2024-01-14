@@ -12,6 +12,11 @@ html {
   scroll-behavior: smooth;
 }
 
+::selection {
+  color: #EFF0E3; /* Text color of the selected text */
+  background: #DB9C3E; /* Background color of the selected text */
+}
+
 body {
   overflow-x: hidden;
 }
