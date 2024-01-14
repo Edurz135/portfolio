@@ -1,6 +1,12 @@
 import React, { useEffect, useRef } from "react";
-import { motion, useTransform, useScroll } from "framer-motion";
-import "./home.page.css"
+import {
+  motion,
+  useTransform,
+  useScroll,
+  useAnimation,
+  useInView,
+} from "framer-motion";
+import "./home.page.css";
 
 export default function HomePage() {
   const targetRef = useRef(null);
@@ -9,6 +15,17 @@ export default function HomePage() {
   });
 
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-35%"]);
+
+  const defaultAnimations = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
 
   useEffect(() => {}, []);
 
@@ -93,7 +110,7 @@ export default function HomePage() {
       <br />
       <br />
       <div className="flex justify-between items-end h-36 px-5 bg-color-one font-one text-color-two font-bold rounded-3xl">
-        <span className="text-9xl">PORTFOLIO</span>
+        <AnimatedText el="h2" text={["PORTFOLIO"]} className="text-9xl" />
         <span className="text-4xl pb-3">It's me</span>
       </div>
       <br />
@@ -107,7 +124,7 @@ export default function HomePage() {
         </div>
         <div className="flex-1 relative">
           <div className="absolute font-one text-color-one font-bold text-[11rem] right-0">
-            RAMÓN
+            <AnimatedText el="h2" text={["RAMÓN"]} />
           </div>
           <div className="font-two text-color-three text-justify text-xl pt-[15rem] pl-10 whitespace-pre-line">
             Student of the <b>Systems Engineering</b> degree at the University
@@ -142,10 +159,10 @@ export default function HomePage() {
             >
               {/* overflow-hidden"> */}
               <div className=" font-one text-color-one font-bold text-[11rem] leading-none pt-5">
-                WORK
+                <AnimatedText el="h2" text={["WORK"]} repeatDelay={10000} />
               </div>
 
-              <div className="flex gap-10">
+              <div className="flex gap-20">
                 <div className="flex h-[12em] w-[40rem] bg-color-one rounded-3xl">
                   <div className="flex-1 bg-color-three rounded-l-3xl"></div>
                   <div className="flex-1 flex justify-center font-three text-[15rem] leading-[12rem]">
@@ -167,7 +184,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <div className="flex gap-10 mt-10 ml-[16rem]">
+              <div className="flex gap-20 mt-10 ml-[16rem]">
                 <div className="flex h-[12em] w-[40rem] bg-color-one rounded-3xl">
                   <div className="flex-1 bg-color-three rounded-l-3xl"></div>
                   <div className="flex-1 flex justify-center font-three text-[15rem] leading-[12rem]">
@@ -190,15 +207,31 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="text-color-three font-two font-bold py-5">
-                EDUARDO
-                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
-                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
-                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
-                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
-                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
-                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
-                RAMÓN&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;CODER&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;EDUARDO
+              <div className="text-color-three font-two font-bold pb-10 block relative">
+                <div className="infinite absolute flex">
+                  <div className="infinite-text">
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                  </div>
+                  <div className="infinite-text">
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                    <span>EDUARDO RAMÓN | CODER | </span>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -207,16 +240,20 @@ export default function HomePage() {
       <br />
       <br />
       <section className="flex" id="contact">
-        <div className="flex-1">
-          <div className=" font-one text-color-one font-bold text-[12rem] leading-none">
-            CONTACT
+        <div>
+          <div className="inline">
+            <AnimatedText
+              el="h2"
+              className="font-one text-color-one font-bold text-[12rem] leading-none"
+              text={["CONTACT"]}
+            />
           </div>
           <br />
           <div className="flex">
-            <div className=" font-one text-color-one font-bold text-[12rem] leading-none">
-              ME
+            <div className="flex font-one text-color-one font-bold text-[12rem] leading-none">
+              <AnimatedText el="h2" text={["ME"]} />
             </div>
-            <div className="font-two text-color-three text-justify text-xl pl-10 ">
+            <div className="flex font-two text-color-three text-justify text-xl pl-10 ">
               Student of the Systems Engineering degree at the University of
               Lima. I have experience in web page development and of 2D and 3D
               video games under the Unity platform. Am a responsible, organized
@@ -228,16 +265,27 @@ export default function HomePage() {
           <br />
           <div className="flex justify-between px-10 py-4 bg-color-one rounded-3xl text-color-two">
             <span className="font-two font-bold text-5xl underline">
-              GITHUB
+              <a href="https://github.com/Edurz135" target="_blank">
+                GITHUB
+              </a>
             </span>
-            <span className="font-two font-bold text-5xl underline">MAIL</span>
             <span className="font-two font-bold text-5xl underline">
-              LINKEDIN
+              <a href="mailto:edurz12345@gmail.com">
+                MAIL
+              </a>
+            </span>
+            <span className="font-two font-bold text-5xl underline">
+              <a
+                href="https://www.linkedin.com/in/eram%C3%B3n/"
+                target="_blank"
+              >
+                LINKEDIN
+              </a>
             </span>
           </div>
         </div>
         {/* <div className="flex-1"> */}
-        <div className="flex-1 font-two text-color-three text-justify text-xl pl-10 whitespace-pre-line">
+        <div className="font-two text-color-three text-justify text-xl pl-10 whitespace-pre-line">
           Student of the Systems Engineering degree at the University of Lima. I
           have experience in web page development and of 2D and 3D video games
           under the Unity platform. Am a responsible, organized person, with
@@ -265,3 +313,87 @@ export default function HomePage() {
     </div>
   );
 }
+
+const defaultAnimations = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.1,
+    },
+  },
+};
+
+export const AnimatedText = ({
+  text,
+  el: Wrapper = "p",
+  className,
+  once,
+  repeatDelay,
+  animation = defaultAnimations,
+}) => {
+  const controls = useAnimation();
+  const textArray = Array.isArray(text) ? text : [text];
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 0.5, once });
+
+  useEffect(() => {
+    let timeout;
+    const show = () => {
+      controls.start("visible");
+      if (repeatDelay) {
+        timeout = setTimeout(async () => {
+          await controls.start("hidden");
+          controls.start("visible");
+        }, repeatDelay);
+      }
+    };
+
+    if (isInView) {
+      show();
+    } else {
+      controls.start("hidden");
+    }
+
+    return () => clearTimeout(timeout);
+  }, [isInView]);
+
+  return (
+    <Wrapper className={className}>
+      <span className="sr-only">{textArray.join(" ")}</span>
+      <motion.span
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={{
+          visible: { transition: { staggerChildren: 0.1 } },
+          hidden: {},
+        }}
+        aria-hidden
+      >
+        {textArray.map((line, lineIndex) => (
+          <span className="block" key={`${line}-${lineIndex}`}>
+            {line.split(" ").map((word, wordIndex) => (
+              <span className="inline-block" key={`${word}-${wordIndex}`}>
+                {word.split("").map((char, charIndex) => (
+                  <motion.span
+                    key={`${char}-${charIndex}`}
+                    className="inline" // acá decía inline-block
+                    variants={animation}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+                {/* <span className="inline-block">&nbsp;</span> */}
+              </span>
+            ))}
+          </span>
+        ))}
+      </motion.span>
+    </Wrapper>
+  );
+};
