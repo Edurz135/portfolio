@@ -16,7 +16,13 @@ export default function Card(props) {
     <div
       className={`flex h-[12em] w-[40rem] ${currentVariant.backgroundColor} rounded-3xl`}
     >
-      <div className="flex-1 bg-color-three rounded-l-3xl"></div>
+      <div className="flex-1 bg-color-three rounded-l-3xl overflow-hidden">
+        <img
+          src={props.img}
+          className="h-full w-full"
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+      </div>
       <div
         className={`flex-1 flex justify-center font-three text-[15rem] leading-[12rem] ${currentVariant.fontColor}`}
       >

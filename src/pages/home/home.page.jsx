@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 import "./home.page.css";
 import { Card, AnimatedText } from "../../components";
@@ -8,6 +8,8 @@ export default function HomePage() {
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
+
+  const [selectedId, setSelectedId] = useState(null);
 
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-35%"]);
 
@@ -173,14 +175,44 @@ export default function HomePage() {
               </div>
 
               <div className="flex gap-20">
-                <Card year="2019" variant="default" />
-                <Card year="2021" variant="secondary" />
-                <Card year="2023" variant="default" />
+                <Card
+                  id="1"
+                  year="2019"
+                  variant="default"
+                  img="/FREEFALL.png"
+                  />
+                <Card
+                  id="2"
+                  year="2021"
+                  variant="secondary"
+                  img="/FREEFALL.png"
+                  />
+                <Card
+                  id="3"
+                  year="2023"
+                  variant="default"
+                  img="/FREEFALL.png"
+                  />
               </div>
               <div className="flex gap-20 mt-10 ml-[16rem]">
-                <Card year="2020" variant="secondary" />
-                <Card year="2022" variant="default" />
-                <Card year="2024" variant="secondary" />
+                <Card
+                  id="4"
+                  year="2020"
+                  variant="secondary"
+                  img="/MOF.png"
+                  />
+                <Card
+                  id="5"
+                  year="2022"
+                  variant="default"
+                  img="/MOF.png"
+                  />
+                <Card
+                  id="6"
+                  year="2024"
+                  variant="secondary"
+                  img="/MOF.png"
+                />
               </div>
 
               <div className="text-color-three font-two font-bold pb-10 block relative">
