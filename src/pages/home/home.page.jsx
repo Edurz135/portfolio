@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 import "./home.page.css";
-import { Card, AnimatedText } from "../../components";
+import { Card, AnimatedText, PopCard } from "../../components";
 
 export default function HomePage() {
   const targetRef = useRef(null);
@@ -163,11 +163,11 @@ export default function HomePage() {
         </div>
       </section>
       <section ref={targetRef} className="relative h-[220vh]" id="projects">
-        <div className="sticky top-0 h-screen">
+        <div className="sticky top-0 h-screen ">
           <div className="absolute z-50 h-full">
             <motion.div
               style={{ x }}
-              className="relative flex flex-col justify-between h-full"
+              className=" flex flex-col justify-between h-full"
             >
               {/* overflow-hidden"> */}
               <div className=" font-one text-color-one font-bold text-[11rem] leading-none pt-5">
@@ -175,44 +175,30 @@ export default function HomePage() {
               </div>
 
               <div className="flex gap-20">
-                <Card
+                <PopCard
+                  title="2019"
+                  imgSrc="/FREEFALL.png"
                   id="1"
                   year="2019"
                   variant="default"
-                  img="/FREEFALL.png"
-                  />
+                />
                 <Card
                   id="2"
                   year="2021"
                   variant="secondary"
                   img="/FREEFALL.png"
-                  />
+                />
                 <Card
                   id="3"
                   year="2023"
                   variant="default"
                   img="/FREEFALL.png"
-                  />
+                />
               </div>
               <div className="flex gap-20 mt-10 ml-[16rem]">
-                <Card
-                  id="4"
-                  year="2020"
-                  variant="secondary"
-                  img="/MOF.png"
-                  />
-                <Card
-                  id="5"
-                  year="2022"
-                  variant="default"
-                  img="/MOF.png"
-                  />
-                <Card
-                  id="6"
-                  year="2024"
-                  variant="secondary"
-                  img="/MOF.png"
-                />
+                <Card id="4" year="2020" variant="secondary" img="/MOF.png" />
+                <Card id="5" year="2022" variant="default" img="/MOF.png" />
+                <Card id="6" year="2024" variant="secondary" img="/MOF.png" />
               </div>
 
               <div className="text-color-three font-two font-bold pb-10 block relative">
