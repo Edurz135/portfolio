@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Fragment, useRef, useState } from "react";
 
-export default function Card(props) {
+export default function Card({ year, imgSrc, variant }) {
   const variants = {
     default: {
       backgroundColor: "bg-color-one",
@@ -13,63 +13,59 @@ export default function Card(props) {
     },
   };
 
-  const variant = props.variant || "default";
-  const currentVariant = variants[variant];
+  const currentVariant = variants[variant] || "default";
   const [isCardOpened, setIsCardOpened] = useState(false);
-  const [cardDimensions, setCardDimensions] = useState({ width: 0, height: 0 });
   const card = useRef(null);
   return (
     <Fragment>
       <motion.div
         ref={card}
-        // isCardOpened={isCardOpened}
         layout
         onClick={() => {
-          setIsCardOpened(true);
-          if (!isCardOpened) {
-            setCardDimensions({
-              width: card.current.clientWidth,
-              height: card.current.clientHeight,
-            });
-          }
+          setIsCardOpened(!isCardOpened);
         }}
-        className={
-          isCardOpened
-            ? "fixed top-0 right-0 bottom-0 left-0 flex flex-col z-10 justify-center items-center w-[38rem] m-auto"
-            : `flex h-[12em] w-[40rem] ${currentVariant.backgroundColor} rounded-3xl overflow-hidden`
-        }
+        className="flex relative h-[12em] w-[40rem] rounded-3xl items-center"
       >
-        <div
+        <motion.div
+          layout
           className={
-            isCardOpened ? "w-full flex flex-col" : "w-full flex flex-row"
+            isCardOpened
+              ? `flex flex-col absolute w-full rounded-3xl p-4 ${currentVariant.backgroundColor}`
+              : `flex flex-row absolute w-full h-full rounded-3xl ${currentVariant.backgroundColor}`
           }
         >
           <motion.img
-            layout="scale"
-            className={isCardOpened ? "w-full h-40" : "flex-1 h-full w-full"}
-            style={{ objectFit: "cover", objectPosition: "center" }}
-            src={props.imgSrc}
-          />
-          <motion.div
+            layout
+            transition={{ ease: "easeInOut", duration: 0.2, stiffness: 100 }}
             className={
               isCardOpened
-                ? "font-three text-[15rem] leading-[12rem] text-color-two"
-                : `flex-1 flex justify-center font-three text-[15rem] leading-[12rem] ${currentVariant.fontColor}`
+                ? "w-full h-40 rounded-t-3xl object-cover object-top"
+                : "flex w-1/2 rounded-l-3xl object-cover object-bottom"
             }
-            isCardOpened={isCardOpened}
-            layout="position"
+            src={imgSrc}
+          />
+          <motion.div
+            layout
+            transition={{ ease: "easeInOut", duration: 0.2, stiffness: 100 }}
+            className={
+              isCardOpened
+                ? `font-three text-[8rem] leading-[8rem] ${currentVariant.fontColor}`
+                : `flex w-1/2 justify-center font-three text-[15rem] leading-[12rem] ${currentVariant.fontColor}`
+            }
           >
-            {props.title}
+            {year}
           </motion.div>
           {isCardOpened && (
-            <div className="font-three text-[15rem] leading-[12rem] text-color-two">
+            <div
+              className={`font-three text-[15rem] leading-[12rem] ${currentVariant.fontColor}`}
+            >
               FREE FALL
             </div>
           )}
 
           {isCardOpened && (
             <motion.p
-              className="font-two text-color-two text-justify text-xl"
+              className={`font-two ${currentVariant.fontColor} text-justify text-xl`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
@@ -81,12 +77,13 @@ export default function Card(props) {
 
           {isCardOpened && (
             <motion.p
-              className="font-two text-color-two font-bold text-3xl"
+              className={`font-two ${currentVariant.fontColor} font-bold text-3xl`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
+              <span className="pr-2">&gt;&gt;</span>
               <a
-                className="animated-underline2"
+                className="animated-underline"
                 href="https://play.google.com/store/apps/details?id=com.PED.FreeFall&hl=en&gl=US"
                 target="_blank"
               >
@@ -94,26 +91,8 @@ export default function Card(props) {
               </a>
             </motion.p>
           )}
-        </div>
+        </motion.div>
       </motion.div>
-
-      {isCardOpened && (
-        <Fragment>
-          <div
-            style={{
-              width: cardDimensions.width,
-              height: cardDimensions.height,
-            }}
-          ></div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            onClick={() => setIsCardOpened(false)}
-            className="w-screen h-screen fixed z-[9] top-0 bottom-0 right-0 left-0 bg-black"
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
-          ></motion.div>
-        </Fragment>
-      )}
     </Fragment>
   );
 }

@@ -169,36 +169,43 @@ export default function HomePage() {
               style={{ x }}
               className=" flex flex-col justify-between h-full"
             >
-              {/* overflow-hidden"> */}
-              <div className=" font-one text-color-one font-bold text-[11rem] leading-none pt-5">
+              <div className="font-one text-color-one font-bold text-[11rem] leading-none pt-5">
                 <AnimatedText el="h2" text={["WORK"]} repeatDelay={10000} />
               </div>
 
               <div className="flex gap-20">
                 <PopCard
-                  title="2019"
-                  imgSrc="/FREEFALL.png"
-                  id="1"
                   year="2019"
+                  imgSrc="/FREEFALL.png"
                   variant="default"
                 />
-                <Card
-                  id="2"
+                <PopCard
                   year="2021"
+                  imgSrc="/FREEFALL.png"
                   variant="secondary"
-                  img="/FREEFALL.png"
                 />
-                <Card
-                  id="3"
+                <PopCard
                   year="2023"
+                  imgSrc="/FREEFALL.png"
                   variant="default"
-                  img="/FREEFALL.png"
                 />
               </div>
               <div className="flex gap-20 mt-10 ml-[16rem]">
-                <Card id="4" year="2020" variant="secondary" img="/MOF.png" />
-                <Card id="5" year="2022" variant="default" img="/MOF.png" />
-                <Card id="6" year="2024" variant="secondary" img="/MOF.png" />
+                <PopCard
+                  year="2020"
+                  imgSrc="/MOF.png"
+                  variant="secondary"
+                />
+                <PopCard
+                  year="2022"
+                  imgSrc="/MOF.png"
+                  variant="default"
+                />
+                <PopCard
+                  year="2024"
+                  imgSrc="/MOF.png"
+                  variant="secondary"
+                />
               </div>
 
               <div className="text-color-three font-two font-bold pb-10 block relative">
