@@ -62,21 +62,21 @@ export default function HomePage() {
       </div> */}
       <div className="relative mt-[16rem]">
         <img src="/HEADER.png" />
-        <div className="absolute top-0">
+        <div className="absolute top-2">
           <div className="flex flex-row gap-16 text-lg font-two text-color-three">
-            <span>
+            <span className="bg-color-two">
               <p className="font-bold">Name-</p>
               <p>Eduardo</p>
             </span>
-            <span>
+            <span className="bg-color-two">
               <p className="font-bold">Lastname-</p>
               <p>Ramón</p>
             </span>
-            <span>
+            <span className="bg-color-two">
               <p className="font-bold">Role-</p>
               <p>Coder</p>
             </span>
-            <span>
+            <span className="bg-color-two">
               <p className="font-bold">Birth-</p>
               <p>22.07.2003</p>
             </span>
@@ -139,26 +139,10 @@ export default function HomePage() {
             <AnimatedText el="h2" text={["RAMÓN"]} />
           </div>
           <div className="font-two text-color-three text-justify text-xl pt-[15rem] pl-10 whitespace-pre-line">
-            Student of the <b>Systems Engineering</b> degree at the University
-            of Lima. I have experience in web page development and of 2D and 3D
-            video games under the Unity platform. Am a <b>responsible</b>,
-            organized person, with great ease of learning and committed to work.
+            Hi, my name is Eduardo Ramón. Currently, i'm a student of <b>Systems Engineering</b> at the University
+            of Lima from Perú. I'm also passionate on <b>reading</b> and <b>music</b>. I’m always curious to learn more when it comes to new technologies and creative coding.
             <br />
             <br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et <b>dolore</b> magna aliqua.
-            Ut enim ad minim veniam.
-            <br />
-            <br />
-            Student of the Systems Engineering degree at the University of Lima.
-            I have experience in web page development and of 2D and 3D video
-            games under the Unity platform. Am a responsible, organized person,
-            with great ease of learning and committed to work.
-            <br />
-            <br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam.
           </div>
         </div>
       </section>
@@ -176,35 +160,61 @@ export default function HomePage() {
               <div className="flex gap-20">
                 <PopCard
                   year="2019"
-                  imgSrc="/FREEFALL.png"
+                  imgLogoSrc="/FREEFALL_LOGO.png"
+                  imgContentSrc="/FREEFALL_CONTENT.png"
                   variant="default"
+                  title="FREE FALL"
+                  description="Relive your moments by playing this remake of the famous game
+                  Rapid Roll. This remake presents diversity of appearances for the
+                  player and the platforms, you will have fun."
+                  link="https://play.google.com/store/apps/details?id=com.PED.FreeFall&hl=en&gl=US"
                 />
                 <PopCard
                   year="2021"
-                  imgSrc="/FREEFALL.png"
+                  imgLogoSrc="/FREEFALL.png"
+                  imgContentSrc="/FREEFALL.png"
                   variant="secondary"
+                  title="SULFUR"
                 />
                 <PopCard
                   year="2023"
-                  imgSrc="/FREEFALL.png"
+                  imgLogoSrc="/FREEFALL.png"
+                  imgContentSrc="/FREEFALL.png"
                   variant="default"
+                  title="DIJKSTRA"
+                  description="A website to provide an easily accessible platform for students to comprehend the workings of Dijkstra's algorithm in a simpler and more straightforward manner.
+                  "
+                  link="https://no-dijkstra.web.app/"
                 />
               </div>
               <div className="flex gap-20 mt-10 ml-[16rem]">
                 <PopCard
                   year="2020"
-                  imgSrc="/MOF.png"
+                  imgLogoSrc="/MOF_LOGO.png"
+                  imgContentSrc="/MOF_CONTENT.png"
                   variant="secondary"
+                  title="MIND OF S."
+                  description="MIND OF SHOOTER is an offline video game for two players with a retro style.
+                  Dare to play this game! Win the most epic battles, buy all the skins you can and have fun with your friends.
+                  "
+                  link="https://play.google.com/store/apps/details?id=com.MukiGames.MindofShooter&hl=en&gl=US"
+                  bottom={true}
                 />
                 <PopCard
                   year="2022"
-                  imgSrc="/MOF.png"
+                  imgLogoSrc="/MOF.png"
+                  imgContentSrc="/MOF.png"
                   variant="default"
-                />
+                  title="MEDGIT"
+                  bottom={true}
+                  />
                 <PopCard
                   year="2024"
-                  imgSrc="/MOF.png"
+                  imgLogoSrc="/MOF.png"
+                  imgContentSrc="/MOF.png"
+                  title="UNKNOW"
                   variant="secondary"
+                  bottom={true}
                 />
               </div>
 

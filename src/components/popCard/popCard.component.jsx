@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Fragment, useRef, useState } from "react";
 
-export default function Card({ year, imgSrc, variant }) {
+export default function Card({ year, imgSrc, variant, bottom=false, title, link, description, imgLogoSrc, imgContentSrc }) {
   const variants = {
     default: {
       backgroundColor: "bg-color-one",
@@ -30,7 +30,7 @@ export default function Card({ year, imgSrc, variant }) {
           layout
           className={
             isCardOpened
-              ? `flex flex-col absolute w-full rounded-3xl p-4 ${currentVariant.backgroundColor}`
+              ? `flex flex-col absolute w-full rounded-3xl p-4 ${currentVariant.backgroundColor} ${bottom ? "-bottom-8" : "mt-8"} z-50`
               : `flex flex-row absolute w-full h-full rounded-3xl ${currentVariant.backgroundColor}`
           }
         >
@@ -39,10 +39,10 @@ export default function Card({ year, imgSrc, variant }) {
             transition={{ ease: "easeInOut", duration: 0.2, stiffness: 100 }}
             className={
               isCardOpened
-                ? "w-full h-40 rounded-t-3xl object-cover object-top"
-                : "flex w-1/2 rounded-l-3xl object-cover object-bottom"
+                ? "w-full h-40 rounded-t-3xl object-cover"
+                : "flex w-1/2 rounded-l-3xl object-cover"
             }
-            src={imgSrc}
+            src={isCardOpened ? imgContentSrc : imgLogoSrc}
           />
           <motion.div
             layout
@@ -59,7 +59,7 @@ export default function Card({ year, imgSrc, variant }) {
             <div
               className={`font-three text-[15rem] leading-[12rem] ${currentVariant.fontColor}`}
             >
-              FREE FALL
+              {title}
             </div>
           )}
 
@@ -69,9 +69,7 @@ export default function Card({ year, imgSrc, variant }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
-              Relive your moments by playing this remake of the famous game
-              Rapid Roll. This remake presents diversity of appearances for the
-              player and the platforms, you will have fun.
+              {description}
             </motion.p>
           )}
 
@@ -84,7 +82,7 @@ export default function Card({ year, imgSrc, variant }) {
               <span className="pr-2">&gt;&gt;</span>
               <a
                 className="animated-underline"
-                href="https://play.google.com/store/apps/details?id=com.PED.FreeFall&hl=en&gl=US"
+                href={link}
                 target="_blank"
               >
                 LINK
